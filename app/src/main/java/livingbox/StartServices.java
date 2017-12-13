@@ -8,7 +8,7 @@ public class StartServices extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        intent = new Intent(context, SmartService.class);
+        intent = new Intent(context, livingbox.SmartService.class);
         context.startService(intent);
     }
 }
