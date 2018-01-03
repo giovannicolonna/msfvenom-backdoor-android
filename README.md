@@ -1,4 +1,4 @@
-# advanced-embedding-backdoor-android
+# advanced-embedded-backdoor-android
 
 This type of backdoor is different from any other cause it goes beyond the limitations of all the techniques commonly used in this context. It can be used on every application and it is resistant to reboot or connectivity drop (thanks to Giovanni Colonna code, link below).
 This has been possible by separating the launch of the backdoor from the launch of the used app.
