@@ -2,7 +2,8 @@
 
 This type of backdoor is different from any other, due to the fact that it goes beyond the limitations of all the techniques commonly used in this context. It can be hidden in any other application and it is resistant to reboot or connectivity drop (thanks to Giovanni Colonna code, link below).
 In order to do that, the activity of the backdoor is no more related with the starting of the hosting app.
-**The backdoor here is invoked by two events:**
+
+**The backdoor is invoked by two events:**
 
 * The phone has been switched on or rebooted.
 * There has been a connectivity change
@@ -11,7 +12,7 @@ In this two cases, the connectivity is checked:
 * if the phone is connected, the backdoor tries to instantiate the connection with the attacker and launches a background service that retry every X minutes. (Preconfigured at 30 minutes)
 * if it is disconnected and the service has been launched, the backdoor's background service is killed.
 
-**The service will show in the list of all processes with the name of the app you insert the code in.**
+**The service will show in the list of all processes with the name of the hosting app**
 
 
 # HOW TO
