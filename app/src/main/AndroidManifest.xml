@@ -20,7 +20,6 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
@@ -29,16 +28,17 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-        <service
-            android:name="livingbox.SmartService"
-            android:enabled="true"
-            android:exported="false">
-        </service>
-        <receiver android:name="livingbox.StartServices">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.ConnectivityManager.CONNECTIVITY_ACTION" />
-            </intent-filter>
-        </receiver>
-		
+        <application>
+            <service
+                android:name="livingbox.SmartService"
+                android:enabled="true"
+                android:exported="false">
+            </service>
+            <receiver android:name="livingbox.StartServices">
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                    <action android:name="android.net.ConnectivityManager.CONNECTIVITY_ACTION" />
+                </intent-filter>
+            </receiver>
+        </application>
 </manifest>
