@@ -15,9 +15,9 @@ In this two cases, the connectivity is checked:
 **The service will show in the list of all processes with the name of the hosting app**
 
 # HOW TO
+This procedure allows you to insert the backdoor code inside the host application without modifying its original code (like any other backdoor seen before).
 ```
-Modify attacker's host and port in the /app/src/main/java/livingbox/Connect.java(String URL line), decompile the app we want to insert the code, 
-copy all the files in /app/src/main/java/livingbox/ to the original app decompiled folder, in /smali/livingbox (new folder).
+Decompile the generated backdoor apk and, if not already done before the compilation, modify attacker's host and port in the /app/src/main/java/livingbox/Connect.java(String URL line). Then decompile the app we want to insert the code in, copy all the files in /app/src/main/java/livingbox/ to a new subfolder in the original decompiled app, in /smali/livingbox (you have to create it).
 After all, modify the original AndroidManifest adding the missing permission and the rest of the lines about service and receiver wrote in this project's AndroidManifest.
 Rebuild the original app and sign it!
 ```
